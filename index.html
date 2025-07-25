@@ -1,1 +1,190 @@
-<!DOCTYPE html> <html lang="hu"> <head>   <meta charset="UTF-8" />   <meta name="viewport" content="width=device-width, initial-scale=1" />   <title>5 Stars Ultimate - Csapatválasztó</title>   <style>     body {       background-color: #111;       color: #fff;       font-family: Arial, sans-serif;       text-align: center;       padding: 40px 20px;       margin: 0;     }     h1 {       font-size: 36px;       margin-bottom: 20px;     }     .team-list {       max-width: 600px;       margin: 0 auto;       text-align: left;     }     .team {       background-color: #222;       border-radius: 12px;       padding: 20px;       margin-bottom: 20px;     }     .team h2 {       margin: 0 0 10px;       font-size: 28px;       color: #1e90ff;     }     .rating {       font-weight: bold;       margin-bottom: 10px;       color: #0af;     }     .coach {       font-style: italic;       margin-bottom: 10px;       color: #ccc;     }     ul.players {       list-style: none;       padding: 0;       margin: 0 0 15px 0;     }     ul.players li {       padding: 3px 0;       border-bottom: 1px solid #333;     }     button {       background-color: #1e90ff;       border: none;       border-radius: 10px;       color: white;       font-size: 18px;       padding: 10px 25px;       cursor: pointer;       transition: background-color 0.3s;     }     button:hover {       background-color: #0f78d4;     }     #backBtn {       margin-top: 30px;       background-color: #444;     }   </style> </head> <body>   <h1>5 Stars Ultimate</h1>    <div id="mainMenu">     <button onclick="showTeamSelector()">Válassz csapatot</button>     <button onclick="alert('Karriermód hamarosan érkezik! 🚧')">Karriermód (hamarosan)</button>     <button onclick="alert('Online mód hamarosan érkezik! 🌐')">Online mód (hamarosan)</button>   </div>    <div id="teamSelector" style="display:none;">     <h2>Csapatválasztó</h2>     <div class="team-list" id="teamList"></div>     <button id="backBtn" onclick="backToMenu()">Vissza a főmenübe</button>   </div>    <script>     const teams = [       {         name: "Hyper FC",         rating: 92,         coach: "Pep Guardiola",         players: [           "Kylian Mbappé",           "Luka Modrić",           "Frenkie de Jong",           "Antonio Rüdiger",           "Thibaut Courtois"         ]       },       {         name: "Blaze United",         rating: 93,         coach: "Jürgen Klopp",         players: [           "Erling Haaland",           "Mohamed Salah",           "Jude Bellingham",           "João Cancelo",           "Marc-André ter Stegen"         ]       },       {         name: "Ironstorm 11",         rating: 91,         coach: "Diego Simeone",         players: [           "Harry Kane",           "Federico Valverde",           "Declan Rice",           "Virgil van Dijk",           "Mike Maignan"         ]       },       {         name: "Shadow Kings",         rating: 94,         coach: "Xabi Alonso",         players: [           "Lionel Messi",           "Neymar Jr",           "Pedri",           "Marquinhos",           "Alisson Becker"         ]       },       {         name: "Nova Stars",         rating: 90,         coach: "Zinedine Zidane",         players: [           "Jamal Musiala",           "Gavi",           "Phil Foden",           "Josko Gvardiol",           "Gianluigi Donnarumma"         ]       }     ];      function showTeamSelector() {       document.getElementById("mainMenu").style.display = "none";       const teamListDiv = document.getElementById("teamList");       teamListDiv.innerHTML = "";        teams.forEach((team, index) => {         const teamDiv = document.createElement("div");         teamDiv.className = "team";          teamDiv.innerHTML =            <h2>${team.name}</h2>           <div class="rating">Rating: ${team.rating}</div>           <div class="coach">Edző: ${team.coach}</div>           <ul class="players">             ${team.players.map(player => <li>${player}</li>).join("")}           </ul>           <button onclick="selectTeam(${index})">Választom</button>         ;         teamListDiv.appendChild(teamDiv);       });        document.getElementById("teamSelector").style.display = "block";     }      function backToMenu() {       document.getElementById("teamSelector").style.display = "none";       document.getElementById("mainMenu").style.display = "block";     }      function selectTeam(index) {       const selectedTeam = teams[index];       alert(Kiválasztottad a(z) ${selectedTeam.name} csapatot!);       // Itt indíthatnád a játékot a kiválasztott csapattal       backToMenu();     }   </script> </body> </html>
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5 Stars Ultimate</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .team-list {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .team {
+      background-color: #222;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .team h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: #1e90ff;
+    }
+    .rating {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0af;
+    }
+    .coach {
+      font-style: italic;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+    ul.players {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px 0;
+    }
+    ul.players li {
+      padding: 3px 0;
+      border-bottom: 1px solid #333;
+    }
+    button {
+      background-color: #1e90ff;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      padding: 10px 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0f78d4;
+    }
+    #backBtn {
+      margin-top: 30px;
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>5 Stars Ultimate</h1>
+
+  <div id="mainMenu">
+    <button onclick="showTeamSelector()">Válassz csapatot</button>
+    <button onclick="alert('Karriermód hamarosan érkezik! 🚧')">Karriermód (hamarosan)</button>
+    <button onclick="alert('Online mód hamarosan érkezik! 🌐')">Online mód (hamarosan)</button>
+  </div>
+
+  <div id="teamSelector" style="display:none;">
+    <h2>Csapatválasztó</h2>
+    <div class="team-list" id="teamList"></div>
+    <button id="backBtn" onclick="backToMenu()">Vissza a főmenübe</button>
+  </div>
+
+  <script>
+    const teams = [
+      {
+        name: "Hyper FC",
+        rating: 92,
+        coach: "Pep Guardiola",
+        players: [
+          "Kylian Mbappé",
+          "Luka Modrić",
+          "Frenkie de Jong",
+          "Antonio Rüdiger",
+          "Thibaut Courtois"
+        ]
+      },
+      {
+        name: "Blaze United",
+        rating: 93,
+        coach: "Jürgen Klopp",
+        players: [
+          "Erling Haaland",
+          "Mohamed Salah",
+          "Jude Bellingham",
+          "João Cancelo",
+          "Marc-André ter Stegen"
+        ]
+      },
+      {
+        name: "Ironstorm 11",
+        rating: 91,
+        coach: "Diego Simeone",
+        players: [
+          "Harry Kane",
+          "Federico Valverde",
+          "Declan Rice",
+          "Virgil van Dijk",
+          "Mike Maignan"
+        ]
+      },
+      {
+        name: "Shadow Kings",
+        rating: 94,
+        coach: "Xabi Alonso",
+        players: [
+          "Lionel Messi",
+          "Neymar Jr",
+          "Pedri",
+          "Marquinhos",
+          "Alisson Becker"
+        ]
+      },
+      {
+        name: "Nova Stars",
+        rating: 90,
+        coach: "Zinedine Zidane",
+        players: [
+          "Jamal Musiala",
+          "Gavi",
+          "Phil Foden",
+          "Josko Gvardiol",
+          "Gianluigi Donnarumma"
+        ]
+      }
+    ];
+
+    function showTeamSelector() {
+      document.getElementById("mainMenu").style.display = "none";
+      const teamListDiv = document.getElementById("teamList");
+      teamListDiv.innerHTML = "";
+
+      teams.forEach((team, index) => {
+        const teamDiv = document.createElement("div");
+        teamDiv.className = "team";
+
+        teamDiv.innerHTML = `
+          <h2>${team.name}</h2>
+          <div class="rating">Rating: ${team.rating}</div>
+          <div class="coach">Edző: ${team.coach}</div>
+          <ul class="players">
+            ${team.players.map(player => <li>${player}</li>).join("")}
+          </ul>
+          <button onclick="selectTeam(${index})">Választom</button>
+        `;
+        teamListDiv.appendChild(teamDiv);
+      });
+
+      document.getElementById("teamSelector").style.display = "block";
+    }
+
+    function backToMenu() {
+      document.getElementById("teamSelector").style.display = "none";
+      document.getElementById("mainMenu").style.display = "block";
+    }
+
+    function selectTeam(index) {
+      const selectedTeam = teams[index];
+      alert(Kiválasztottad a(z) ${selectedTeam.name} csapatot!);
+      // Itt indíthatod majd a játékot a kiválasztott csapattal
+      backToMenu();
+    }
+  </script>
+</body>
+</html>
