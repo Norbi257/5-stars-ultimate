@@ -1,102 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ultimate League 25 - Demo</title>
+  <title>5 Stars Ultimate</title>
   <style>
     body {
-      background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
-      color: white;
-      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
       text-align: center;
-      padding: 40px;
+      padding-top: 100px;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-    .menu, .team-select, .team-details {
-      margin: 30px auto;
-      max-width: 500px;
-      background-color: #222;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      font-size: 36px;
     }
     button {
-      background-color: #0077ff;
-      color: white;
+      display: block;
+      margin: 20px auto;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #1e90ff;
       border: none;
-      padding: 12px 25px;
-      font-size: 1em;
-      margin: 10px;
-      border-radius: 12px;
+      border-radius: 10px;
+      color: white;
       cursor: pointer;
     }
     button:hover {
-      background-color: #005bd1;
-    }
-    .team {
-      font-weight: bold;
-      margin: 10px 0;
-    }
-    .player-list {
-      text-align: left;
-      margin-top: 15px;
+      background-color: #0f78d4;
     }
   </style>
 </head>
 <body>
-  <h1>Ultimate League 25</h1>
-
-  <div class="menu">
-    <h2>Főmenü</h2>
-    <button onclick="showTeams()">Válassz Csapatot</button>
-    <button disabled>Karriermód (hamarosan)</button>
-    <button disabled>Online mód (hamarosan)</button>
-  </div>
-
-  <div class="team-select" style="display:none">
-    <h2>Válaszd ki a csapatod</h2>
-    <button onclick="selectTeam('Titan FC')">Titan FC</button>
-    <button onclick="selectTeam('Galactic Lions')">Galactic Lions</button>
-    <button onclick="selectTeam('Brasil Storm')">Brasil Storm</button>
-    <button onclick="selectTeam('Nordic Frost')">Nordic Frost</button>
-    <button onclick="selectTeam('Balkan Wolves')">Balkan Wolves</button>
-  </div>
-
-  <div class="team-details" style="display:none">
-    <h2 id="team-name"></h2>
-    <div class="player-list" id="player-list"></div>
-    <button onclick="goBack()">Vissza</button>
-  </div>
+  <h1>5 Stars Ultimate</h1>
+  <button onclick="valasszCsapatot()">Válassz csapatot</button>
+  <button onclick="karrier()">Karriermód (hamarosan)</button>
+  <button onclick="online()">Online mód (hamarosan)</button>
 
   <script>
-    const teams = {
-      "Titan FC": ["Haaland (ST, 92)", "Mbappé (LW, 93)", "Bellingham (CM, 91)", "KDB (CM, 91)", "Rodri (CDM, 90)", "Dias (CB, 89)", "Davies (LB, 87)", "Van Dijk (CB, 90)", "Walker (RB, 86)", "Alisson (GK, 90)", "Salah (RW, 90)"],
-      "Galactic Lions": ["Messi (CAM, 91)", "Pedri (CM, 88)", "Vinícius Jr. (LW, 91)", "Ronald Araújo (CB, 90)", "Ter Stegen (GK, 90)", "Gavi (CM, 86)", "Yamal (RW, 85)", "Koundé (RB, 86)", "Balde (LB, 84)", "Busquets (CDM, 87)"],
-      "Brasil Storm": ["Neymar (CAM, 91)", "Rodrygo (RW, 88)", "Vinícius Jr. (LW, 91)", "Marquinhos (CB, 89)", "Ederson (GK, 89)", "Casemiro (CDM, 88)", "Militao (CB, 88)", "Danilo (RB, 84)", "Paquetá (CM, 86)"],
-      "Nordic Frost": ["Haaland (ST, 92)", "Ødegaard (CAM, 89)", "Isak (CF, 87)", "Christensen (CB, 87)", "Schmeichel (GK, 86)", "Lindelöf (CB, 85)", "Mæhle (LB, 84)", "Norgaard (CDM, 83)"],
-      "Balkan Wolves": ["Modrić (CM, 88)", "Vlahović (ST, 87)", "Szoboszlai (CAM, 86)", "Gvardiol (CB, 88)", "Oblak (GK, 90)", "Brozović (CDM, 86)", "Kostić (LM, 85)", "Tadić (RW, 84)", "Stojković (RB, 83)"]
-    };
-
-    function showTeams() {
-      document.querySelector('.menu').style.display = 'none';
-      document.querySelector('.team-select').style.display = 'block';
+    function valasszCsapatot() {
+      alert("Itt tudsz majd csapatot választani! (fejlesztés alatt)");
+      // ide jön majd a csapatválasztó oldal vagy logika
     }
 
-    function selectTeam(teamName) {
-      document.querySelector('.team-select').style.display = 'none';
-      document.querySelector('.team-details').style.display = 'block';
-      document.getElementById('team-name').innerText = teamName;
-      const list = teams[teamName].map(p => <div>⚽ ${p}</div>).join('');
-      document.getElementById('player-list').innerHTML = list;
+    function karrier() {
+      alert("A karriermód hamarosan érkezik! 🚧");
     }
 
-    function goBack() {
-      document.querySelector('.team-details').style.display = 'none';
-      document.querySelector('.team-select').style.display = 'block';
+    function online() {
+      alert("Az online mód még fejlesztés alatt van! 🌐");
     }
   </script>
 </body>
